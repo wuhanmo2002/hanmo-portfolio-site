@@ -22,6 +22,7 @@ export type Project = {
   credits: string[];
   awards: string[];
   heroImage: string;
+  detailHeroImageMobile?: string;
   cardImage?: string;
   gallery: string[];
   links: ProjectLink[];
@@ -44,6 +45,7 @@ export const siteDomain = "hanmowu.com";
 export const reel = {
   title: "Film Portfolio Reel",
   heroVideo: "/assets/video/hero-montage.mp4",
+  mobileHeroVideo: "/assets/video/hero-montage-mobile.mp4",
   localVideo: "/assets/video/film-portfolio-reel-hanmo-wu-720p.mp4",
   youtube: "https://youtu.be/EWJWSX2H670",
   poster: "/assets/images/one-more-chance-hero.jpg",
@@ -75,6 +77,7 @@ export const projects: Project[] = [
       "Best Short Film Selection, 2024 Rome Prisma Film Awards",
     ],
     heroImage: "/assets/images/one-more-chance-hero.jpg",
+    detailHeroImageMobile: "/assets/images/mobile-heroes/one-more-chance-mobile-hero.jpg",
     cardImage: "/assets/images/one-more-chance-poster.jpg",
     gallery: [
       "/assets/images/one-more-chance-gallery-01.jpg",
@@ -130,6 +133,7 @@ export const projects: Project[] = [
       "Best Short Film Main Competition Selection, 2023 Shanghai International Short Film Week",
     ],
     heroImage: "/assets/images/hidden-love-hero.jpg",
+    detailHeroImageMobile: "/assets/images/mobile-heroes/hidden-love-mobile-hero.jpg",
     cardImage: "/assets/images/hidden-love-poster.jpg",
     gallery: [
       "/assets/images/hidden-love-gallery-01.jpg",
@@ -179,6 +183,7 @@ export const projects: Project[] = [
     credits: ["Director of Photography", "Digital Colorist"],
     awards: [],
     heroImage: "/assets/images/welcome-home-hero.jpg",
+    detailHeroImageMobile: "/assets/images/mobile-heroes/welcome-home-mobile-hero.jpg",
     cardImage: "/assets/images/welcome-home-poster.jpg",
     gallery: [
       "/assets/images/welcome-home-gallery-01.jpg",
@@ -225,6 +230,7 @@ export const projects: Project[] = [
     credits: ["Director of Photography"],
     awards: [],
     heroImage: "/assets/images/pride-prejudice-hero.jpg",
+    detailHeroImageMobile: "/assets/images/mobile-heroes/pride-prejudice-mobile-hero.jpg",
     cardImage: "/assets/images/pride-prejudice-poster.jpg",
     gallery: [
       "/assets/images/pride-prejudice-gallery-01.jpg",
@@ -264,6 +270,7 @@ export const projects: Project[] = [
     credits: ["Director of Photography", "Digital Colorist"],
     awards: [],
     heroImage: "/assets/images/wait-lighthouse-hero.jpg",
+    detailHeroImageMobile: "/assets/images/mobile-heroes/wait-lighthouse-mobile-hero.jpg",
     cardImage: "/assets/images/wait-lighthouse-poster.jpg",
     gallery: [
       "/assets/images/wait-lighthouse-gallery-01.jpg",
@@ -307,6 +314,7 @@ export const projects: Project[] = [
     credits: ["Director of Photography", "Digital Colorist"],
     awards: [],
     heroImage: "/assets/images/rose-hero.jpg",
+    detailHeroImageMobile: "/assets/images/mobile-heroes/rose-mobile-hero.jpg",
     cardImage: "/assets/images/rose-poster.jpg",
     gallery: [
       "/assets/images/rose-gallery-01.jpg",
@@ -350,6 +358,7 @@ export const projects: Project[] = [
     credits: ["Production Designer"],
     awards: ["Winner, Best Short Film of the Year, 2024 Shanghai International Short Film Week"],
     heroImage: "/assets/images/inferno-hero.jpg",
+    detailHeroImageMobile: "/assets/images/mobile-heroes/inferno-mobile-hero.jpg",
     cardImage: "/assets/images/inferno-poster.jpg",
     gallery: [
       "/assets/images/inferno-gallery-01.jpg",
@@ -389,6 +398,7 @@ export const projects: Project[] = [
     credits: ["Digital Colorist"],
     awards: [],
     heroImage: "/assets/images/no-wind-island-poster-new.jpg",
+    detailHeroImageMobile: "/assets/images/mobile-heroes/no-wind-island-mobile-hero.jpg",
     cardImage: "/assets/images/no-wind-island-poster-new.jpg",
     gallery: [
       "/assets/images/no-wind-island-poster-new.jpg",

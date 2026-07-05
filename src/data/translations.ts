@@ -61,6 +61,7 @@ export const uiCopy = {
       title: "Visual Film Works",
     },
     about: {
+      sectionTitle: "About",
       eyebrow: "Bio",
       intro: [
         "Hanmo Wu is a Chinese director, cinematographer, and digital colorist currently pursuing an MFA in Film Production with a Cinematography emphasis at Chapman University Dodge College of Film and Media Arts.",
@@ -79,7 +80,7 @@ export const uiCopy = {
       emailAria: "Email Hanmo Wu",
     },
     project: {
-      home: "Home",
+      back: "Back",
       year: "Year",
       duration: "Duration",
       role: "Role",
@@ -138,6 +139,7 @@ export const uiCopy = {
       title: "视觉影像作品",
     },
     about: {
+      sectionTitle: "关于",
       eyebrow: "个人简介",
       intro: [
         "吴晗默是一名中国导演、摄影指导与数字调色师，现就读于查普曼大学道奇电影与媒体艺术学院电影制作 MFA 摄影方向。",
@@ -156,7 +158,7 @@ export const uiCopy = {
       emailAria: "发送邮件给吴晗默",
     },
     project: {
-      home: "首页",
+      back: "返回",
       year: "年份",
       duration: "片长",
       role: "职责",

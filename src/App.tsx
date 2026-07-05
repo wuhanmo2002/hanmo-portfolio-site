@@ -165,9 +165,11 @@ function Hero({ locale }: { locale: Locale }) {
         playsInline
         preload="metadata"
         poster={reel.poster}
-        src={reel.heroVideo}
         aria-label="Hanmo Wu selected film montage"
-      />
+      >
+        <source src={reel.mobileHeroVideo} media="(max-width: 760px)" type="video/mp4" />
+        <source src={reel.heroVideo} type="video/mp4" />
+      </video>
       <div className="hero-grade" />
       <div className="film-frame" aria-hidden="true" />
       <div className="hero-content">
@@ -300,6 +302,9 @@ function AboutSection({ locale }: { locale: Locale }) {
 
   return (
     <section className="about-section" id="about">
+      <div className="section-frame about-section-heading" data-reveal>
+        <p className="eyebrow">{copy.sectionTitle}</p>
+      </div>
       <div className="section-frame about-layout">
         <div className="about-portrait" data-reveal>
           <img src="/assets/images/hanmo-work-photo.jpg" alt="Hanmo Wu on set" loading="lazy" decoding="async" />
@@ -369,10 +374,19 @@ function ProjectPage({ project, locale }: { project: Project; locale: Locale }) 
 
   return (
     <article className="project-page" id="top">
-      <a className="project-home-link" href="#top">
-        {copy.home}
+      <a className="project-home-link" href="#works">
+        {copy.back}
       </a>
-      <header className="project-hero" style={{ "--hero": `url(${project.heroImage})`, "--accent": project.accent } as CSSProperties}>
+      <header
+        className="project-hero"
+        style={
+          {
+            "--hero": `url(${project.heroImage})`,
+            "--hero-mobile": `url(${project.detailHeroImageMobile ?? project.heroImage})`,
+            "--accent": project.accent,
+          } as CSSProperties
+        }
+      >
         <div className="project-hero-grade" />
         <div className="project-hero-inner" data-reveal>
           <p className="eyebrow">{projectCopy.role}</p>
@@ -501,6 +515,21 @@ export default function App() {
     if (activeProject) {
       window.scrollTo({ top: 0, behavior: "auto" });
     }
+  }, [activeProject]);
+
+  useEffect(() => {
+    if (activeProject) {
+      return;
+    }
+
+    const hash = window.location.hash;
+    if (!hash || hash === "#top" || hash.startsWith("#/")) {
+      return;
+    }
+
+    window.requestAnimationFrame(() => {
+      document.querySelector(hash)?.scrollIntoView({ behavior: "auto", block: "start" });
+    });
   }, [activeProject]);
 
   return (
