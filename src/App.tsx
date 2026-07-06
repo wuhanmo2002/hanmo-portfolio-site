@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
-import { abilities, email, imdbUrl, instagramUrl, projects, reel, type Project } from "./data/projects";
+import { abilities, email, imdbUrl, instagramUrl, linkedinUrl, projects, reel, type Project } from "./data/projects";
 import { abilityZh, projectZh, uiCopy, type Locale } from "./data/translations";
 
 function getProjectIdFromHash() {
@@ -237,7 +237,7 @@ function WorkCard({ project, index, locale }: { project: Project; index: number;
         <img
           src={cardImage}
           alt={`${copy.title} poster`}
-          loading={index < 3 ? "eager" : "lazy"}
+          loading="lazy"
           decoding="async"
         />
       </figure>
@@ -358,6 +358,10 @@ function ContactSection({ locale }: { locale: Locale }) {
           <a href={instagramUrl} target="_blank" rel="noreferrer">
             <span>{copy.instagram}</span>
             <strong>@lucas_filmmaking</strong>
+          </a>
+          <a href={linkedinUrl} target="_blank" rel="noreferrer">
+            <span>{copy.linkedin}</span>
+            <strong>{imdbName}</strong>
           </a>
         </div>
       </div>

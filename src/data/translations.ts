@@ -42,11 +42,11 @@ export const uiCopy = {
         },
         {
           text:
-            "His films have been selected by Oscar-qualifying festivals including Flickers’ Rhode Island International Film Festival and Tehran International Short Film Festival.",
+            "He is currently pursuing an MFA in Film Production with a Cinematography emphasis at Chapman University Dodge College of Film and Media Arts.",
         },
         {
           text:
-            "He also supports short films with festival positioning, market preparation, and platform strategy, helping projects reach international platforms including Clermont-Ferrand Short Film Market, Cannes Short Film Corner / Marché du Film, and International Short Film Festival Oberhausen.",
+            "His films have been selected by Oscar-qualifying festivals including Flickers’ Rhode Island International Film Festival and Tehran International Short Film Festival. He also supports short films with festival positioning, market preparation, and platform strategy for Clermont-Ferrand Short Film Market, Cannes Short Film Corner / Marché du Film, and International Short Film Festival Oberhausen.",
         },
       ],
     },
@@ -77,6 +77,7 @@ export const uiCopy = {
       email: "Email",
       imdb: "IMDb",
       instagram: "Instagram",
+      linkedin: "LinkedIn",
       emailAria: "Email Hanmo Wu",
     },
     project: {
@@ -120,11 +121,11 @@ export const uiCopy = {
         },
         {
           text:
-            "他的作品曾入围罗德岛国际电影节、德黑兰国际短片电影节等奥斯卡资格认证电影节。",
+            "现就读于查普曼大学道奇电影与媒体艺术学院电影制作 MFA 摄影方向。",
         },
         {
           text:
-            "他也为短片项目提供电影节定位、市场材料准备与平台策略支持，帮助作品进入克莱蒙费朗短片市场、戛纳短片角、奥伯豪森国际短片电影节等国际平台。",
+            "他的作品曾入围罗德岛国际电影节、德黑兰国际短片电影节等奥斯卡资格认证电影节。他也为短片项目提供电影节定位、市场材料准备与平台策略支持，帮助作品进入克莱蒙费朗短片市场、戛纳短片角、奥伯豪森国际短片电影节等国际平台。",
         },
       ],
     },
@@ -155,6 +156,7 @@ export const uiCopy = {
       email: "邮箱",
       imdb: "IMDb",
       instagram: "Instagram",
+      linkedin: "LinkedIn",
       emailAria: "发送邮件给吴晗默",
     },
     project: {

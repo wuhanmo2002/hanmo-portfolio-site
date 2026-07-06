@@ -39,6 +39,8 @@ export type AbilityCard = {
 export const imdbUrl = "https://www.imdb.com/name/nm18410734/?ref_=ext_shr_lnk";
 export const instagramUrl =
   "https://www.instagram.com/lucas_filmmaking?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr";
+export const linkedinUrl =
+  "https://www.linkedin.com/in/hanmo-wu-a0a81a3b4?utm_source=share_via&utm_content=profile&utm_medium=member_ios";
 export const email = "wuhanmo2002@gmail.com";
 export const siteDomain = "hanmowu.com";
 
