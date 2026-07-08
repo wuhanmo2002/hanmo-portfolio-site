@@ -723,6 +723,12 @@ footer[id] {
   align-items: start;
 }
 
+.about-layout {
+  grid-template-columns: minmax(300px, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(42px, 4.8vw, 86px);
+  align-items: start;
+}
+
 .contact-grid {
   grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
 }
@@ -730,7 +736,7 @@ footer[id] {
 .about-section-heading {
   display: grid;
   place-items: center;
-  margin-bottom: clamp(34px, 4.2vw, 72px);
+  margin-bottom: clamp(30px, 3.8vw, 64px);
   text-align: center;
 }
 
@@ -805,6 +811,8 @@ footer[id] {
 .about-portrait {
   position: sticky;
   top: calc(var(--nav-h) + 28px);
+  width: min(100%, clamp(440px, 30vw, 560px));
+  justify-self: end;
   overflow: hidden;
   border: 1px solid var(--line);
   background: #101010;
@@ -835,7 +843,7 @@ footer[id] {
 
 .about-copy > .eyebrow {
   color: var(--gold);
-  margin: 0 0 18px;
+  margin: 0 0 20px;
 }
 
 .about-copy > p:not(.eyebrow) {
@@ -845,30 +853,32 @@ footer[id] {
 
 .about-copy > p:not(.eyebrow) + p:not(.eyebrow),
 .project-overview > p:not(.eyebrow) + p:not(.eyebrow) {
-  margin-top: 14px;
+  margin-top: 18px;
+}
+
+.about-abilities {
+  margin-top: clamp(36px, 4.6vw, 76px);
 }
 
 .ability-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-  margin-top: 38px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 2vw, 30px);
 }
 
 .ability-card {
   display: grid;
   min-height: 0;
-  grid-template-columns: minmax(46px, 0.12fr) minmax(0, 1fr);
-  gap: 8px clamp(18px, 2vw, 34px);
+  grid-template-columns: minmax(42px, 0.1fr) minmax(0, 1fr);
+  gap: 10px clamp(18px, 1.8vw, 30px);
   border: 1px solid var(--line);
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 52%),
     rgba(255, 255, 255, 0.025);
-  padding: clamp(22px, 2.2vw, 34px);
+  padding: clamp(22px, 2.1vw, 32px);
 }
 
 .ability-card span {
-  grid-row: 1 / span 2;
   color: var(--gold);
   font-size: 0.76rem;
   font-weight: 650;
@@ -877,19 +887,27 @@ footer[id] {
   padding-top: 0.42em;
 }
 
+.ability-card-copy {
+  min-width: 0;
+}
+
 .ability-card h3 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.55rem, 2vw, 2.18rem);
+  font-size: clamp(1.55rem, 1.85vw, 2.05rem);
   font-weight: 560;
   line-height: 1.06;
 }
 
 .ability-card p {
-  margin: 0;
+  margin: 16px 0 0;
   color: var(--muted);
-  font-size: 1.01rem;
+  font-size: 1.04rem;
   line-height: 1.74;
+}
+
+.ability-card p + p {
+  margin-top: 12px;
 }
 
 .contact-section {
@@ -1069,6 +1087,78 @@ footer[id] {
   font-size: 1.28rem;
   font-weight: 560;
   line-height: 1.08;
+}
+
+.project-player {
+  padding-top: clamp(18px, 3vw, 42px);
+  padding-bottom: clamp(34px, 5vw, 72px);
+}
+
+.project-player-shell {
+  width: min(100%, 1280px);
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(243, 238, 227, 0.18);
+  background: #000;
+  box-shadow: 0 28px 86px rgba(0, 0, 0, 0.42);
+  aspect-ratio: var(--player-aspect, 16 / 9);
+}
+
+.project-player video,
+.project-player iframe,
+.project-player-poster {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #000;
+}
+
+.project-player video {
+  object-fit: contain;
+}
+
+.project-player-poster {
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+  color: #fff8ef;
+}
+
+.project-player-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.66);
+  transition:
+    transform 520ms cubic-bezier(0.22, 0.95, 0.28, 1),
+    filter 260ms ease;
+}
+
+.project-player-poster:hover img,
+.project-player-poster:focus-visible img {
+  transform: scale(1.025);
+  filter: brightness(0.78);
+}
+
+.project-player-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  min-width: 122px;
+  padding: 15px 22px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255, 119, 106, 0.72);
+  background:
+    linear-gradient(135deg, rgba(255, 91, 76, 0.94), rgba(139, 27, 23, 0.94)),
+    #d2483d;
+  color: #fff8ef;
+  font-size: 0.82rem;
+  font-weight: 760;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: 0 18px 58px rgba(210, 72, 61, 0.28);
 }
 
 .project-logline {
@@ -1361,6 +1451,7 @@ footer[id] {
   .hero-lede,
   .section-heading p:not(.eyebrow),
   .about-copy > p:not(.eyebrow),
+  .ability-card p,
   .project-overview > p:not(.eyebrow),
   .detail-note p,
   .muted-copy {

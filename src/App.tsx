@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type MouseEvent } from "react";
 import { abilities, email, imdbUrl, instagramUrl, linkedinUrl, projects, reel, type Project } from "./data/projects";
 import { abilityZh, projectZh, uiCopy, type Locale } from "./data/translations";
 
@@ -42,6 +42,10 @@ function useReveal(routeKey: string) {
     nodes.forEach((node) => observer.observe(node));
     return () => observer.disconnect();
   }, [routeKey]);
+}
+
+function preventVideoContextMenu(event: MouseEvent<HTMLVideoElement>) {
+  event.preventDefault();
 }
 
 function getProjectCopy(project: Project, locale: Locale) {
@@ -166,6 +170,10 @@ function Hero({ locale }: { locale: Locale }) {
         preload="metadata"
         poster={reel.poster}
         aria-label="Hanmo Wu selected film montage"
+        controlsList="nodownload noplaybackrate noremoteplayback"
+        disablePictureInPicture
+        disableRemotePlayback
+        onContextMenu={preventVideoContextMenu}
       >
         <source src={reel.mobileHeroVideo} media="(max-width: 760px)" type="video/mp4" />
         <source src={reel.heroVideo} type="video/mp4" />
@@ -290,7 +298,17 @@ function ReelSection({ locale }: { locale: Locale }) {
           <p>{copy.body}</p>
         </div>
         <div className="reel-player" data-reveal ref={playerRef}>
-          <video controls playsInline preload="none" poster={reel.poster} src={videoEnabled ? reel.localVideo : undefined} />
+          <video
+            controls
+            playsInline
+            preload="none"
+            poster={reel.poster}
+            src={videoEnabled ? reel.localVideo : undefined}
+            controlsList="nodownload noplaybackrate noremoteplayback"
+            disablePictureInPicture
+            disableRemotePlayback
+            onContextMenu={preventVideoContextMenu}
+          />
         </div>
       </div>
     </section>
@@ -314,19 +332,25 @@ function AboutSection({ locale }: { locale: Locale }) {
           {asParagraphs(copy.intro).map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
-          <div className="ability-grid" aria-label={copy.abilityLabel}>
-            {abilities.map((ability, index) => {
-              const abilityCopy = getAbilityCopy(ability, locale);
+        </div>
+      </div>
+      <div className="section-frame about-abilities" data-reveal>
+        <div className="ability-grid" aria-label={copy.abilityLabel}>
+          {abilities.map((ability, index) => {
+            const abilityCopy = getAbilityCopy(ability, locale);
 
-              return (
-                <article className="ability-card" key={ability.title}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
+            return (
+              <article className="ability-card" key={ability.title}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <div className="ability-card-copy">
                   <h3>{abilityCopy.title}</h3>
-                  <p>{abilityCopy.text}</p>
-                </article>
-              );
-            })}
-          </div>
+                  {asParagraphs(abilityCopy.text).map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -369,6 +393,32 @@ function ContactSection({ locale }: { locale: Locale }) {
   );
 }
 
+function ProjectVideoPlayer({ project, title, playLabel }: { project: Project; title: string; playLabel: string }) {
+  if (!project.video) {
+    return null;
+  }
+
+  const style = { "--player-aspect": project.video.aspectRatio } as CSSProperties;
+
+  return (
+    <section className="project-player section-frame" data-reveal style={style} aria-label={`${playLabel} ${title}`}>
+      <div className="project-player-shell">
+        <video
+          controls
+          playsInline
+          preload="none"
+          poster={project.video.poster}
+          src={project.video.src}
+          controlsList="nodownload noplaybackrate noremoteplayback"
+          disablePictureInPicture
+          disableRemotePlayback
+          onContextMenu={preventVideoContextMenu}
+        />
+      </div>
+    </section>
+  );
+}
+
 function ProjectPage({ project, locale }: { project: Project; locale: Locale }) {
   const currentIndex = projects.findIndex((item) => item.id === project.id);
   const next = projects[(currentIndex + 1) % projects.length];
@@ -403,16 +453,6 @@ function ProjectPage({ project, locale }: { project: Project; locale: Locale }) 
           <div className="project-overview" data-reveal>
             <p className="eyebrow">{projectCopy.format}</p>
             <p className="project-logline">{projectCopy.logline}</p>
-            {projectCopy.links.length ? (
-              <div className="project-watch-links" aria-label={`${projectCopy.title} ${copy.externalLinks}`}>
-                {projectCopy.links.map((link) => (
-                  <a className="watch-cta" href={link.href} target="_blank" rel="noreferrer" key={link.href}>
-                    <span>{link.label}</span>
-                    <strong>{projectCopy.title}</strong>
-                  </a>
-                ))}
-              </div>
-            ) : null}
           </div>
 
           <aside className="project-facts" data-reveal>
@@ -442,6 +482,8 @@ function ProjectPage({ project, locale }: { project: Project; locale: Locale }) 
             </dl>
           </aside>
         </section>
+
+        <ProjectVideoPlayer project={project} title={projectCopy.title} playLabel={copy.playFilm} />
 
         <section className="project-detail-grid section-frame" data-reveal>
           <div>

@@ -8,6 +8,14 @@ export type DetailSection = {
   body: string | string[];
 };
 
+export type ProjectVideo =
+  {
+    type: "native";
+    src: string;
+    poster: string;
+    aspectRatio: string;
+  };
+
 export type Project = {
   id: string;
   title: string;
@@ -26,6 +34,7 @@ export type Project = {
   cardImage?: string;
   gallery: string[];
   links: ProjectLink[];
+  video?: ProjectVideo;
   detailSections: DetailSection[];
   accent: string;
   featured?: boolean;
@@ -33,7 +42,7 @@ export type Project = {
 
 export type AbilityCard = {
   title: string;
-  text: string;
+  text: string | string[];
 };
 
 export const imdbUrl = "https://www.imdb.com/name/nm18410734/?ref_=ext_shr_lnk";
@@ -49,7 +58,6 @@ export const reel = {
   heroVideo: "/assets/video/hero-montage.mp4",
   mobileHeroVideo: "/assets/video/hero-montage-mobile.mp4",
   localVideo: "/assets/video/film-portfolio-reel-hanmo-wu-720p.mp4",
-  youtube: "https://youtu.be/EWJWSX2H670",
   poster: "/assets/images/one-more-chance-hero.jpg",
 };
 
@@ -89,7 +97,13 @@ export const projects: Project[] = [
       "/assets/images/one-more-chance-gallery-05.jpg",
       "/assets/images/one-more-chance-gallery-06.jpg",
     ],
-    links: [{ label: "Watch on YouTube", href: "https://youtu.be/mcR_YfNMBVs" }],
+    links: [],
+    video: {
+      type: "native",
+      src: "/assets/video/full-films/one-more-chance.mp4",
+      poster: "/assets/images/one-more-chance-poster.jpg",
+      aspectRatio: "2 / 1",
+    },
     detailSections: [
       {
         title: "Directing",
@@ -145,7 +159,13 @@ export const projects: Project[] = [
       "/assets/images/hidden-love-gallery-05.jpg",
       "/assets/images/hidden-love-gallery-06.jpg",
     ],
-    links: [{ label: "Watch on YouTube", href: "https://youtu.be/FGvFSjnzEMQ" }],
+    links: [],
+    video: {
+      type: "native",
+      src: "/assets/video/full-films/hidden-love.mp4",
+      poster: "/assets/images/hidden-love-poster.jpg",
+      aspectRatio: "16 / 9",
+    },
     detailSections: [
       {
         title: "Directing",
@@ -195,7 +215,13 @@ export const projects: Project[] = [
       "/assets/images/welcome-home-gallery-05.jpg",
       "/assets/images/welcome-home-gallery-06.jpg",
     ],
-    links: [{ label: "Watch on YouTube", href: "https://youtu.be/N7vjhZjAauM" }],
+    links: [],
+    video: {
+      type: "native",
+      src: "/assets/video/full-films/welcome-home.mp4",
+      poster: "/assets/images/welcome-home-poster.jpg",
+      aspectRatio: "37 / 20",
+    },
     detailSections: [
       {
         title: "Cinematography",
@@ -240,7 +266,13 @@ export const projects: Project[] = [
       "/assets/images/pride-prejudice-gallery-03.jpg",
       "/assets/images/pride-prejudice-gallery-04.jpg",
     ],
-    links: [{ label: "Watch on YouTube", href: "https://youtu.be/jzUDIvd43Ro" }],
+    links: [],
+    video: {
+      type: "native",
+      src: "/assets/video/full-films/pride-and-prejudice.mp4",
+      poster: "/assets/images/pride-prejudice-poster.jpg",
+      aspectRatio: "16 / 9",
+    },
     detailSections: [
       {
         title: "Cinematography",
@@ -280,7 +312,13 @@ export const projects: Project[] = [
       "/assets/images/wait-lighthouse-gallery-03.jpg",
       "/assets/images/wait-lighthouse-gallery-04.jpg",
     ],
-    links: [{ label: "Watch on YouTube", href: "https://youtu.be/EidwZeHXAac" }],
+    links: [],
+    video: {
+      type: "native",
+      src: "/assets/video/full-films/wait-for-the-lighthouse.mp4",
+      poster: "/assets/images/wait-lighthouse-poster.jpg",
+      aspectRatio: "16 / 9",
+    },
     detailSections: [
       {
         title: "Cinematography",
@@ -324,7 +362,13 @@ export const projects: Project[] = [
       "/assets/images/rose-gallery-03.jpg",
       "/assets/images/rose-gallery-04.jpg",
     ],
-    links: [{ label: "Watch on YouTube", href: "https://youtu.be/IGyWzgPdT64" }],
+    links: [],
+    video: {
+      type: "native",
+      src: "/assets/video/full-films/rose.mp4",
+      poster: "/assets/images/rose-poster.jpg",
+      aspectRatio: "16 / 9",
+    },
     detailSections: [
       {
         title: "Cinematography",
@@ -426,22 +470,38 @@ export const projects: Project[] = [
 export const abilities: AbilityCard[] = [
   {
     title: "Directing",
-    text:
-      "Hanmo's directing begins with the pressure inside a social situation rather than with plot mechanics alone. In One More Chance, family anxiety becomes institutional violence; in Hidden Love, grief appears through food, silence, and the daily labor of a father who cannot fully explain himself. His scenes are built through performance rhythm, controlled blocking, and the emotional logic of space, so the camera and actor movement grow from the characters' need, shame, fear, or restraint.",
+    text: [
+      "Hanmo's directing begins with observation: the pressure inside a family, the silence inside a room, the way a person changes when they are watched, judged, loved, or controlled. Rather than treating plot as a mechanism, he approaches drama as a social and emotional field where characters are shaped by institutions, gender roles, class expectations, family memory, and the desire to belong.",
+      "His interest in female perspectives and identity is not limited to representation on the surface. He is drawn to the invisible structures that define how women, young people, and marginalized individuals are expected to behave, endure, or disappear. In his stories, conflict often grows from the gap between what a character feels internally and what society permits them to express.",
+      "Hanmo is influenced by filmmakers who use form as a way of thinking: Hirokazu Kore-eda's attention to family, memory, and everyday gestures; Andrei Tarkovsky's belief in time, spiritual weight, and the poetic image; and Stanley Kubrick's precise control of space, rhythm, and institutional violence. These influences do not lead him toward imitation, but toward a directing philosophy in which cinema becomes a method of moral attention.",
+      "For Hanmo, directing is not about forcing a message onto the audience. It is about building a world where emotion, space, performance, and social pressure gradually reveal the truth of a character. A meal, a hallway, a pause, a blocked doorway, or a repeated gesture can carry more dramatic force than direct explanation. His goal is to create films that allow viewers to feel the structure of a life before they are asked to judge it.",
+    ],
   },
   {
     title: "Cinematography",
-    text:
-      "As a cinematographer, Hanmo treats camera placement, light, color temperature, movement, lens choice, and coverage as a single production-aware system. Welcome Home uses one shelter to shift from safety to threat; Wait for the Lighthouse uses handheld breathing and natural distance to hold unresolved grief; Pride and Prejudice uses clear blocking and readable coverage to protect performance continuity. His image work favors emotional realism, motivated light, and controlled visual progression over decorative style.",
+    text: [
+      "As a cinematographer, Hanmo sees the image as a relationship between emotion, space, technology, and time. Camera placement, lens choice, lighting, color temperature, movement, coverage, exposure, and post-production workflow are not separate technical categories for him; they form one visual system that determines how the audience experiences a character's inner world.",
+      "His approach is grounded in the principle of using what is right rather than what is expensive. A camera, lens, or light only has value when it serves the emotional and structural needs of the film. In this sense, cinematography is not decoration, but a form of interpretation. It decides what deserves attention, what remains hidden, how close the audience is allowed to be, and whether a space feels protective, oppressive, unstable, or intimate.",
+      "Hanmo is interested in emotional realism rather than surface realism. Natural light, restrained camera movement, negative space, motivated sources, and controlled visual progression are central to his work, but he does not treat realism as a lack of design. For him, the most powerful images often come from invisible control: a subtle shift in contrast, a careful distance from the actor, a frame that allows silence to remain unresolved.",
+      "In a time when digital cameras, AI tools, and image-processing technologies have made beautiful images easier to produce, Hanmo believes the cinematographer's deeper value lies in visual judgment. The essential question is no longer only how to make an image look impressive, but why the image should exist in that form. His cinematography is guided by this question: how can the camera make a story more honest, more precise, and more deeply felt?",
+    ],
   },
   {
     title: "Digital Color",
-    text:
-      "As a digital colorist, Hanmo approaches the grade as both storytelling and finishing discipline. In One More Chance, green-yellow institutional tones keep the world morally unsettling; in Hidden Love, warm but unsentimental domestic color preserves dignity; in Welcome Home, contrast and temperature let comfort become threat; in No Wind Island, restrained separation protects the stillness of landscape. His work focuses on skin tone, contrast, highlight protection, texture, scene continuity, and delivery standards.",
+    text: [
+      "As a digital colorist, Hanmo approaches color as both storytelling and finishing discipline. He sees the grade not as a filter applied after the film is made, but as the final stage of cinematographic thinking, a place where exposure, texture, contrast, skin tone, atmosphere, and emotional continuity are brought into their most precise form.",
+      "For him, color is a language of memory and perception. It can make a room feel institutional, domestic, unstable, nostalgic, threatening, or emotionally distant without announcing itself. A good grade should not simply make images attractive; it should clarify the film's emotional temperature. It should know when to protect the dignity of a face, when to let darkness remain heavy, when to preserve highlight detail, and when to allow an image to feel fragile or contaminated.",
+      "Hanmo's technical interest in live grading, Show LUTs, color science, exposure index analysis, DI workflow, and final delivery comes from his belief that color should be considered before the image reaches post-production. The look of a film is not created only in the grading room; it begins with the sensor, lens, lighting ratio, exposure decision, monitoring pipeline, and communication between cinematographer, DIT, director, and colorist.",
+      "In the current media environment, where images are increasingly compressed, accelerated, and consumed across different screens, color also becomes a matter of authorship and identity. A consistent visual world helps a film resist becoming just another piece of content in the feed. Hanmo's work as a colorist focuses on creating that coherence: protecting the image technically while allowing its emotional and aesthetic identity to remain distinct.",
+    ],
   },
   {
     title: "Festival Strategy",
-    text:
-      "Hanmo also works with festival positioning, market preparation, and international-facing short film materials. His own films have reached Oscar-qualifying festivals including Flickers’ Rhode Island International Film Festival and Tehran International Short Film Festival, and he has supported projects for platforms such as Clermont-Ferrand Short Film Market, Cannes Short Film Corner / Marché du Film, and International Short Film Festival Oberhausen. This gives him a practical understanding of how films move from creative production into public presentation and circulation.",
+    text: [
+      "Hanmo's work in festival strategy comes from his understanding that a film's life does not end when the final file is exported. For him, festival positioning is not simply about submitting to as many platforms as possible. It is a process of translation: identifying the artistic core of a film, understanding its cultural context, and presenting it in a way that can be recognized by programmers, critics, markets, and audiences.",
+      "Having worked with festival materials, short film circulation, editorial writing, and market-facing positioning, Hanmo understands that every film needs a clear pathway. Premiere status, festival hierarchy, regional relevance, genre identity, cultural specificity, director statements, stills, loglines, synopses, and press language all shape how a film is first encountered. These materials are not secondary packaging; they are part of the film's public meaning.",
+      "In a fragmented media landscape, attention has become one of the most difficult resources to earn. Streaming platforms, social media, short-form content, and algorithm-driven recommendation systems have changed how audiences discover moving images. In this context, festival strategy is not only about exposure, but about building credibility, authorship, and long-term value around a filmmaker's work.",
+      "Hanmo is especially interested in helping films move between artistic creation and international circulation. His experience with Oscar-qualifying festival recognition, short film markets, and international-facing materials has given him a practical understanding of how films travel across cultures. For him, strategy is most effective when it grows from the film itself: its emotional truth, formal language, social relevance, and the audience it is quietly searching for.",
+    ],
   },
 ];
