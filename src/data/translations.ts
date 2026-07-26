@@ -19,7 +19,7 @@ export type ProjectTranslation = {
 
 export const uiCopy = {
   en: {
-    brand: "Ars longa, vita brevis",
+    brand: "ARS LONGA, VITA BREVIS",
     nav: {
       home: "Home",
       reel: "Reel",
@@ -101,7 +101,7 @@ export const uiCopy = {
     },
   },
   zh: {
-    brand: "Ars longa, vita brevis",
+    brand: "ARS LONGA, VITA BREVIS",
     nav: {
       home: "首页",
       reel: "作品集锦",

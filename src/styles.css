@@ -764,6 +764,7 @@ footer[id] {
   max-width: 940px;
   margin-right: auto;
   margin-left: auto;
+  text-align: left;
 }
 
 .reel-player {
@@ -830,8 +831,8 @@ footer[id] {
 
 .contact-section h2 {
   max-width: 760px;
-  font-size: clamp(2.15rem, 3vw, 2.75rem);
-  line-height: 1.16;
+  font-size: clamp(1.95rem, 2.55vw, 2.35rem);
+  line-height: 1.18;
 }
 
 .contact-location {
@@ -1416,7 +1417,7 @@ footer[id] {
   }
 
   .contact-section h2 {
-    font-size: 2.45rem;
+    font-size: 2.15rem;
   }
 
   .work-card h3,
@@ -1521,7 +1522,7 @@ footer[id] {
   }
 
   .hero-copy {
-    --hero-copy-offset: 22px;
+    --hero-copy-offset: 0px;
   }
 
   .hero-copy h1 {
@@ -1562,8 +1563,17 @@ footer[id] {
     font-size: 2.25rem;
   }
 
+  .contact-section h2 {
+    font-size: 1.9rem;
+    line-height: 1.2;
+  }
+
   .reel-section .section-heading h2 {
     white-space: normal;
+  }
+
+  .about-portrait {
+    justify-self: center;
   }
 
   .works-grid {
@@ -1589,20 +1599,19 @@ footer[id] {
   }
 
   .ability-grid {
-    grid-template-columns: repeat(4, minmax(154px, 1fr));
-    gap: 10px;
-    overflow-x: auto;
-    padding-bottom: 8px;
-    scroll-snap-type: x proximity;
-    -webkit-overflow-scrolling: touch;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+    overflow: visible;
+    padding-bottom: 0;
+    scroll-snap-type: none;
   }
 
   .ability-card {
-    min-height: 178px;
+    min-height: 112px;
     grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 16px;
-    scroll-snap-align: start;
+    gap: 8px;
+    padding: 10px 7px;
+    scroll-snap-align: none;
   }
 
   .ability-card span {
@@ -1611,17 +1620,18 @@ footer[id] {
   }
 
   .ability-card h3 {
-    font-size: 1.08rem;
+    font-size: clamp(0.72rem, 2.7vw, 0.95rem);
+    line-height: 1.08;
+    overflow-wrap: anywhere;
   }
 
   .ability-card p {
-    font-size: 0.84rem;
-    line-height: 1.46;
+    display: none;
   }
 
   .ability-more {
-    margin-top: 16px;
-    font-size: 0.68rem;
+    margin-top: 6px;
+    font-size: 0.6rem;
   }
 
   .ability-page {
