@@ -7,6 +7,11 @@ function getProjectIdFromHash() {
   return match ? decodeURIComponent(match[1]) : null;
 }
 
+function getAbilityIdFromHash() {
+  const match = window.location.hash.match(/^#\/about\/([^/?#]+)/);
+  return match ? decodeURIComponent(match[1]) : null;
+}
+
 function useHashProject() {
   const [projectId, setProjectId] = useState<string | null>(() => getProjectIdFromHash());
 
@@ -17,6 +22,18 @@ function useHashProject() {
   }, []);
 
   return projectId;
+}
+
+function useHashAbility() {
+  const [abilityId, setAbilityId] = useState<string | null>(() => getAbilityIdFromHash());
+
+  useEffect(() => {
+    const handleHashChange = () => setAbilityId(getAbilityIdFromHash());
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
+  return abilityId;
 }
 
 function useReveal(routeKey: string) {
@@ -73,6 +90,16 @@ function getAbilityCopy(ability: (typeof abilities)[number], locale: Locale) {
 
 function asParagraphs(content: string | readonly string[]) {
   return Array.isArray(content) ? content : [content];
+}
+
+function withInstantScroll(callback: () => void) {
+  const root = document.documentElement;
+  const previousScrollBehavior = root.style.scrollBehavior;
+  root.style.scrollBehavior = "auto";
+  callback();
+  window.requestAnimationFrame(() => {
+    root.style.scrollBehavior = previousScrollBehavior;
+  });
 }
 
 function Nav({ locale, setLocale }: { locale: Locale; setLocale: (locale: Locale) => void }) {
@@ -219,7 +246,7 @@ function WorksIndex({ locale }: { locale: Locale }) {
           <p className="eyebrow">{copy.eyebrow}</p>
           <h2>{copy.title}</h2>
         </div>
-        <div className="works-grid">
+        <div className="works-grid" id="works-grid">
           {projects.map((project, index) => (
             <WorkCard project={project} index={index} locale={locale} key={project.id} />
           ))}
@@ -236,6 +263,7 @@ function WorkCard({ project, index, locale }: { project: Project; index: number;
 
   return (
     <a
+      id={`work-${project.id}`}
       className={`work-card work-card-${project.id} ${project.featured ? "is-featured" : ""}`}
       href={`#/works/${project.id}`}
       style={style}
@@ -334,26 +362,51 @@ function AboutSection({ locale }: { locale: Locale }) {
           ))}
         </div>
       </div>
-      <div className="section-frame about-abilities" data-reveal>
+      <div className="section-frame about-abilities" id="about-options" data-reveal>
         <div className="ability-grid" aria-label={copy.abilityLabel}>
           {abilities.map((ability, index) => {
             const abilityCopy = getAbilityCopy(ability, locale);
 
             return (
-              <article className="ability-card" key={ability.title}>
+              <a className="ability-card" href={`#/about/${ability.id}`} key={ability.id}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <div className="ability-card-copy">
                   <h3>{abilityCopy.title}</h3>
-                  {asParagraphs(abilityCopy.text).map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
+                  <p>{abilityCopy.summary}</p>
+                  <strong className="ability-more">{copy.more}</strong>
                 </div>
-              </article>
+              </a>
             );
           })}
         </div>
       </div>
     </section>
+  );
+}
+
+function AbilityPage({ ability, locale }: { ability: (typeof abilities)[number]; locale: Locale }) {
+  const copy = uiCopy[locale].about;
+  const abilityCopy = getAbilityCopy(ability, locale);
+  const abilityIndex = abilities.findIndex((item) => item.id === ability.id);
+
+  return (
+    <article className="ability-page" id="top">
+      <main>
+        <section className="ability-hero section-frame" data-reveal>
+          <a className="button back-link" href="#about-options">
+            {copy.detailBack}
+          </a>
+          <p className="eyebrow">{String(abilityIndex + 1).padStart(2, "0")}</p>
+          <h1>{abilityCopy.title}</h1>
+        </section>
+
+        <section className="ability-detail section-frame" data-reveal>
+          {asParagraphs(abilityCopy.text).map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </section>
+      </main>
+    </article>
   );
 }
 
@@ -428,7 +481,7 @@ function ProjectPage({ project, locale }: { project: Project; locale: Locale }) 
 
   return (
     <article className="project-page" id="top">
-      <a className="project-home-link" href="#works">
+      <a className="project-home-link" href={`#work-${project.id}`}>
         {copy.back}
       </a>
       <header
@@ -544,12 +597,17 @@ function ProjectPage({ project, locale }: { project: Project; locale: Locale }) 
 
 export default function App() {
   const projectId = useHashProject();
+  const abilityId = useHashAbility();
   const [locale, setLocale] = useState<Locale>("en");
   const activeProject = useMemo(
     () => projects.find((project) => project.id === projectId) ?? null,
     [projectId],
   );
-  const routeKey = `${activeProject?.id ?? "home"}-${locale}`;
+  const activeAbility = useMemo(
+    () => abilities.find((ability) => ability.id === abilityId) ?? null,
+    [abilityId],
+  );
+  const routeKey = `${activeProject?.id ?? activeAbility?.id ?? "home"}-${locale}`;
 
   useReveal(routeKey);
 
@@ -558,13 +616,15 @@ export default function App() {
   }, [locale]);
 
   useEffect(() => {
-    if (activeProject) {
-      window.scrollTo({ top: 0, behavior: "auto" });
+    if (activeProject || activeAbility) {
+      withInstantScroll(() => {
+        window.scrollTo({ top: 0, behavior: "auto" });
+      });
     }
-  }, [activeProject]);
+  }, [activeProject, activeAbility]);
 
   useEffect(() => {
-    if (activeProject) {
+    if (activeProject || activeAbility) {
       return;
     }
 
@@ -574,14 +634,27 @@ export default function App() {
     }
 
     window.requestAnimationFrame(() => {
-      document.querySelector(hash)?.scrollIntoView({ behavior: "auto", block: "start" });
+      const centeredAnchors = new Set(["#about-options", "#works-grid"]);
+      const shouldCenter = centeredAnchors.has(hash) || hash.startsWith("#work-");
+      withInstantScroll(() => {
+        document.querySelector(hash)?.scrollIntoView({
+          behavior: "auto",
+          block: shouldCenter ? "center" : "start",
+        });
+      });
     });
-  }, [activeProject]);
+  }, [activeProject, activeAbility]);
 
   return (
     <>
       <Nav locale={locale} setLocale={setLocale} />
-      {activeProject ? <ProjectPage project={activeProject} locale={locale} /> : <HomePage locale={locale} />}
+      {activeProject ? (
+        <ProjectPage project={activeProject} locale={locale} />
+      ) : activeAbility ? (
+        <AbilityPage ability={activeAbility} locale={locale} />
+      ) : (
+        <HomePage locale={locale} />
+      )}
     </>
   );
 }

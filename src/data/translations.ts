@@ -46,7 +46,7 @@ export const uiCopy = {
         },
         {
           text:
-            "His films have been selected by Oscar-qualifying festivals including Flickers’ Rhode Island International Film Festival and Tehran International Short Film Festival. He also supports short films with festival positioning, market preparation, and platform strategy for Clermont-Ferrand Short Film Market, Cannes Short Film Corner / Marché du Film, and International Short Film Festival Oberhausen.",
+            "His films have been selected by Oscar-qualifying festivals including Flickers’ Rhode Island International Film Festival and Tehran International Short Film Festival.",
         },
       ],
     },
@@ -65,16 +65,17 @@ export const uiCopy = {
       eyebrow: "Bio",
       intro: [
         "Hanmo Wu is a Chinese director, cinematographer, and digital colorist currently pursuing an MFA in Film Production with a Cinematography emphasis at Chapman University Dodge College of Film and Media Arts.",
-        "With a background in Radio and Television Directing, Hanmo's practice moves across narrative filmmaking, commercial image-making, color, post-production workflow, and festival strategy. His work is built on the belief that cinema is both an art of human observation and a disciplined production system. From on-set media management, signal distribution, QTake workflow, live grading, color science, and exposure control, to DI finishing, final delivery, and DCP packaging, his technical training has shaped the way he understands image-making: not as isolated visual beauty, but as a complete chain of decisions that protects the emotional truth of a story from production to projection.",
-        "Hanmo is drawn to films that carry both aesthetic depth and social consciousness. His work often explores identity, family, trauma, gendered experience, belonging, and the emotional cost of being shaped by institutions, intimate relationships, and social expectations. He is especially interested in the moments when private pain becomes a social question, and when visual language can reveal what characters are unable, or not allowed, to say.",
-        "In an era shaped by streaming platforms, social feeds, short-form drama, and AI-generated moving images, Hanmo believes that technical barriers in image production are rapidly disappearing. What remains difficult, and therefore more valuable, is not simply the ability to create images, but the ability to think, feel, judge, and organize them with artistic clarity. For him, lasting cinematic value comes from a filmmaker's point of view: the capacity to transform memory, social reality, and emotional complexity into images that are precise, responsible, and alive.",
+        "With a background in Radio and Television Directing, his practice moves across narrative filmmaking, commercial image-making, color workflow, post-production, and festival strategy. He approaches cinema as both a form of human observation and a disciplined production system, a medium where memory, social reality, performance, technology, and circulation all shape the final meaning of an image.",
+        "His work is drawn to identity, family, trauma, gendered experience, belonging, and the emotional cost of being shaped by institutions, intimate relationships, and social expectations. In an era of streaming platforms, social feeds, short-form drama, and AI-generated images, Hanmo believes that the lasting value of filmmaking no longer comes only from access to tools, but from a creator's ability to see deeply, think critically, and build a visual world with emotional and aesthetic precision.",
       ],
       abilityLabel: "Working strengths",
+      more: "More",
+      detailBack: "Back to About",
     },
     contact: {
       eyebrow: "Contact",
-      heading: "Available for directing, cinematography, color, and festival-facing work.",
-      location: "Based in Los Angeles",
+      heading: "Available for directing, cinematography, color grading, and festival submission works.",
+      location: "Base in Hollywood, Los Angeles",
       email: "Email",
       imdb: "IMDb",
       instagram: "Instagram",
@@ -127,7 +128,7 @@ export const uiCopy = {
         },
         {
           text:
-            "他的作品曾入围罗德岛国际电影节、德黑兰国际短片电影节等奥斯卡资格认证电影节。他也为短片项目提供电影节定位、市场材料准备与平台策略支持，帮助作品进入克莱蒙费朗短片市场、戛纳短片角、奥伯豪森国际短片电影节等国际平台。",
+            "他的作品曾入围罗德岛国际电影节、德黑兰国际短片电影节等奥斯卡资格认证电影节。",
         },
       ],
     },
@@ -146,16 +147,17 @@ export const uiCopy = {
       eyebrow: "个人简介",
       intro: [
         "吴晗默是一名中国导演、摄影指导与数字调色师，现就读于查普曼大学道奇电影与媒体艺术学院电影制作 MFA 摄影方向。",
-        "凭借广播电视编导的学习背景，吴晗默的实践横跨剧情片创作、商业影像、色彩、后期流程与电影节策略。他相信，电影既是一种观察人的艺术，也是一套严谨的制作系统。从现场媒体管理、信号分发、QTake 工作流、现场调色、色彩科学与曝光控制，到 DI 制作、最终交付和 DCP 打包，这些技术训练塑造了他理解影像的方法：影像不是孤立的视觉美感，而是一连串从拍摄到放映都在保护故事情感真实的决策。",
-        "吴晗默被同时具有审美深度和社会意识的电影所吸引。他的作品常关注身份、家庭、创伤、女性经验、归属感，以及个体被机构、亲密关系和社会期待塑造时所付出的情感代价。他尤其关注那些私人痛苦转化为社会问题的时刻，也关注影像语言如何替人物说出他们无法说、或不被允许说的话。",
-        "在流媒体平台、社交信息流、短剧和 AI 生成动态影像共同塑造观看环境的时代，影像生产的技术门槛正在迅速下降。吴晗默认为，真正困难也更有价值的，并不只是制造影像的能力，而是以清晰的艺术判断去思考、感受、选择并组织影像的能力。对他而言，电影长久的价值来自创作者的观看方式：将记忆、社会现实和复杂情绪转化为精确、负责且有生命力的影像。",
+        "凭借广播电视编导的学习背景，他的实践横跨剧情片创作、商业影像、色彩流程、后期制作与电影节策略。他将电影视为一种对人的观察，也视为一套严谨的制作系统：记忆、社会现实、表演、技术与传播路径，共同塑造一幅影像最终抵达观众时的意义。",
+        "他的作品关注身份、家庭、创伤、女性经验、归属感，以及个体被机构、亲密关系和社会期待塑造时所付出的情感代价。在流媒体、社交信息流、短剧和 AI 生成影像共同改变观看方式的时代，吴晗默相信，电影创作的持久价值不再只来自工具的可获得性，而来自创作者深入观看、批判性思考，并以情感和审美精确度建立视觉世界的能力。",
       ],
       abilityLabel: "工作方向",
+      more: "更多",
+      detailBack: "返回关于我",
     },
     contact: {
       eyebrow: "联系",
-      heading: "可承接导演、电影摄影、调色与面向电影节发行的项目合作。",
-      location: "常驻洛杉矶",
+      heading: "可承接导演、电影摄影、调色与电影节投递相关项目。",
+      location: "常驻洛杉矶好莱坞",
       email: "邮箱",
       imdb: "IMDb",
       instagram: "Instagram",
@@ -447,9 +449,10 @@ export const projectZh: Record<string, ProjectTranslation> = {
   },
 };
 
-export const abilityZh: Record<string, { title: string; text: string | string[] }> = {
+export const abilityZh: Record<string, { title: string; summary: string; text: string | string[] }> = {
   Directing: {
     title: "导演",
+    summary: "观察家庭、性别、机构与社会压力如何塑造人物的私人情感处境。",
     text: [
       "吴晗默的导演工作始于观察：家庭内部的压力、房间里的沉默，以及一个人在被观看、被评判、被爱或被控制时发生的变化。相比把情节视为一套推进机制，他更愿意把戏剧理解为一个社会与情感场域：人物在机构、性别角色、阶层期待、家庭记忆和归属欲望中被缓慢塑形。",
       "他对女性视角与身份议题的兴趣，并不止于表层的代表性。他更关注那些规定女性、年轻人和边缘个体如何行动、忍耐或消失的隐形结构。在他的故事里，冲突常常来自人物内在感受与社会允许表达的内容之间的裂缝。",
@@ -458,7 +461,8 @@ export const abilityZh: Record<string, { title: string; text: string | string[] 
     ],
   },
   Cinematography: {
-    title: "摄影",
+    title: "电影摄影",
+    summary: "以摄影机、光线、运动、曝光和流程建立服务情感真实的视觉系统。",
     text: [
       "作为摄影指导，吴晗默将影像看作情感、空间、技术与时间之间的关系。机位、镜头选择、光线、色温、运动、覆盖方式、曝光和后期流程，在他看来并不是彼此分离的技术类别，而是共同组成一个视觉系统，决定观众如何进入人物的内在世界。",
       "他的工作原则是使用正确的东西，而不是昂贵的东西。摄影机、镜头或灯具只有在服务影片的情感与结构需求时才真正有价值。摄影因此不是装饰，而是一种解释：它决定什么值得被看见，什么需要被隐藏，观众可以离人物多近，以及一个空间是保护性的、压迫性的、不稳定的，还是亲密的。",
@@ -466,8 +470,9 @@ export const abilityZh: Record<string, { title: string; text: string | string[] 
       "在数字摄影机、AI 工具和图像处理技术让“漂亮画面”越来越容易被生产的时代，吴晗默认为，摄影指导更深层的价值在于视觉判断。核心问题不再只是如何让画面显得惊艳，而是为什么这个画面必须以这样的方式存在。他的摄影始终围绕这个问题展开：摄影机如何让一个故事更诚实、更精确，也更能被感受到。",
     ],
   },
-  "Digital Color": {
+  "Digital Color Grading": {
     title: "数字调色",
+    summary: "将数字调色视为摄影思考的最后阶段，用色彩维持影像的情绪连续性。",
     text: [
       "作为数字调色师，吴晗默将色彩视为叙事工具，也视为最终完成的一部分。他并不把调色理解为影片完成后套上的滤镜，而是把它看作摄影思考的最后阶段：曝光、质感、反差、肤色、氛围和情绪连续性在这里被整理到最精确的状态。",
       "对他来说，色彩是一种关于记忆与感知的语言。它可以让一个房间显得机构化、家庭化、不稳定、怀旧、危险或疏离，而不必主动宣告自身的存在。好的调色不只是让画面更好看，而是澄清影片的情绪温度：什么时候保护一张脸的尊严，什么时候让黑暗保持重量，什么时候保留高光细节，什么时候允许影像显得脆弱或被污染。",
@@ -477,6 +482,7 @@ export const abilityZh: Record<string, { title: string; text: string | string[] 
   },
   "Festival Strategy": {
     title: "电影节策略",
+    summary: "帮助影片进入电影节、市场和观众语境，同时保留作品自身的复杂性。",
     text: [
       "吴晗默的电影节策略经验，来自他对影片生命周期的理解：一部电影并不会在最终文件导出时结束。对他而言，电影节定位并不是尽可能多地投递平台，而是一种翻译工作：识别影片的艺术核心，理解它所处的文化语境，并以能被选片人、评论者、市场和观众识别的方式呈现出来。",
       "通过电影节材料、短片流通、编辑写作和面向市场的定位工作，吴晗默理解每部影片都需要清晰的路径。首映状态、电影节层级、地域相关性、类型身份、文化特殊性、导演阐述、剧照、故事梗概、剧情简介和媒体语言，都会影响一部影片最初被如何看见。这些材料不是次要包装，而是影片公共意义的一部分。",

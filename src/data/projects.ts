@@ -41,7 +41,9 @@ export type Project = {
 };
 
 export type AbilityCard = {
+  id: string;
   title: string;
+  summary: string;
   text: string | string[];
 };
 
@@ -116,7 +118,7 @@ export const projects: Project[] = [
           "Once the story enters the academy, the image becomes colder, more restrained, and more oppressive. The 2:1 frame, anamorphic lensing, high-angle observation, blocked movement, and green fluorescent pressure make the institution feel like a system closing around the body. In the electrotherapy and reception-room scenes, the camera is organized around power: who controls the space, who is watched, and whose voice is no longer believed.",
       },
       {
-        title: "Digital Color",
+        title: "Digital Color Grading",
         body:
           "Rather than giving the film a clean digital finish, the grade preserves green-yellow institutional tones, aging walls, practical light, controlled contrast, and subtle texture. The goal is not to beautify suffering, but to keep the world specific, credible, and morally unsettling.",
       },
@@ -178,7 +180,7 @@ export const projects: Project[] = [
           "The cinematography uses handheld movement to preserve a quiet breathing rhythm. Doorways, tables, kitchen counters, and narrow interiors often sit between the father and daughter, turning emotional distance into visible space. Naturalistic light, warm practical sources, and controlled contrast keep the film intimate and restrained.",
       },
       {
-        title: "Digital Color",
+        title: "Digital Color Grading",
         body:
           "The grade keeps the image warm but unsentimental. Soft contrast, muted color separation, and tactile domestic texture support the film's realist tone. The visual principle is old but not dirty: the house is worn, but clean, dignified, and full of traces of care.",
       },
@@ -231,7 +233,7 @@ export const projects: Project[] = [
         ],
       },
       {
-        title: "Digital Color",
+        title: "Digital Color Grading",
         body:
           "The grade continues this transformation through contrast and temperature. Early scenes hold onto a warmer and more approachable palette, while later moments move toward colder tones, deeper shadows, and a more controlled sense of separation. The color does not announce danger too early; it lets warmth slowly lose stability until comfort has already turned into threat.",
       },
@@ -328,7 +330,7 @@ export const projects: Project[] = [
         ],
       },
       {
-        title: "Digital Color",
+        title: "Digital Color Grading",
         body:
           "The grade remains quiet and atmospheric. Controlled contrast, muted tones, and subtle separation between skin, shadow, and background help maintain the feeling of suspended grief. The color should feel like a memory that is still alive, but slowly fading: a signal not yet received, a relationship not yet resolved, and a past that continues to shape the present.",
       },
@@ -378,7 +380,7 @@ export const projects: Project[] = [
         ],
       },
       {
-        title: "Digital Color",
+        title: "Digital Color Grading",
         body:
           "The grade avoids strong stylization and keeps the image soft, focused, and emotionally clean. Natural skin tone, gentle contrast, and subtle separation between the protagonist and her environment support the feeling of a private creative awakening. The film should feel intimate without becoming overly polished, preserving the fragile honesty at the center of the story.",
       },
@@ -455,7 +457,7 @@ export const projects: Project[] = [
     links: [],
     detailSections: [
       {
-        title: "Digital Color",
+        title: "Digital Color Grading",
         body: [
           "As digital colorist for No Wind Island, Hanmo focused on preserving the stillness of the landscape while giving the film a coherent emotional temperature. The image is led by space, distance, and atmosphere, so the grade needed to remain quiet and precise. Rather than creating a heavy stylized look, the color work supports the natural tension between emptiness and human presence.",
           "The grade balances natural color, controlled contrast, highlight protection, and subtle separation between sky, earth, skin, and architecture. Because the film relies heavily on wide landscapes and restrained human movement, small differences in luminance and color separation become important. The environment needs to feel vast, but the characters cannot disappear inside it.",
@@ -469,7 +471,10 @@ export const projects: Project[] = [
 
 export const abilities: AbilityCard[] = [
   {
+    id: "directing",
     title: "Directing",
+    summary:
+      "Observes how family, gender, institutions, and social pressure shape a character's private emotional life.",
     text: [
       "Hanmo's directing begins with observation: the pressure inside a family, the silence inside a room, the way a person changes when they are watched, judged, loved, or controlled. Rather than treating plot as a mechanism, he approaches drama as a social and emotional field where characters are shaped by institutions, gender roles, class expectations, family memory, and the desire to belong.",
       "His interest in female perspectives and identity is not limited to representation on the surface. He is drawn to the invisible structures that define how women, young people, and marginalized individuals are expected to behave, endure, or disappear. In his stories, conflict often grows from the gap between what a character feels internally and what society permits them to express.",
@@ -478,7 +483,10 @@ export const abilities: AbilityCard[] = [
     ],
   },
   {
+    id: "cinematography",
     title: "Cinematography",
+    summary:
+      "Builds visual systems where camera, light, movement, exposure, and workflow serve emotional truth.",
     text: [
       "As a cinematographer, Hanmo sees the image as a relationship between emotion, space, technology, and time. Camera placement, lens choice, lighting, color temperature, movement, coverage, exposure, and post-production workflow are not separate technical categories for him; they form one visual system that determines how the audience experiences a character's inner world.",
       "His approach is grounded in the principle of using what is right rather than what is expensive. A camera, lens, or light only has value when it serves the emotional and structural needs of the film. In this sense, cinematography is not decoration, but a form of interpretation. It decides what deserves attention, what remains hidden, how close the audience is allowed to be, and whether a space feels protective, oppressive, unstable, or intimate.",
@@ -487,7 +495,10 @@ export const abilities: AbilityCard[] = [
     ],
   },
   {
-    title: "Digital Color",
+    id: "digital-color",
+    title: "Digital Color Grading",
+    summary:
+      "Treats color grading as the final stage of cinematographic thinking and a discipline of emotional continuity.",
     text: [
       "As a digital colorist, Hanmo approaches color as both storytelling and finishing discipline. He sees the grade not as a filter applied after the film is made, but as the final stage of cinematographic thinking, a place where exposure, texture, contrast, skin tone, atmosphere, and emotional continuity are brought into their most precise form.",
       "For him, color is a language of memory and perception. It can make a room feel institutional, domestic, unstable, nostalgic, threatening, or emotionally distant without announcing itself. A good grade should not simply make images attractive; it should clarify the film's emotional temperature. It should know when to protect the dignity of a face, when to let darkness remain heavy, when to preserve highlight detail, and when to allow an image to feel fragile or contaminated.",
@@ -496,7 +507,10 @@ export const abilities: AbilityCard[] = [
     ],
   },
   {
+    id: "festival-strategy",
     title: "Festival Strategy",
+    summary:
+      "Positions films for festival, market, and audience contexts without reducing their artistic complexity.",
     text: [
       "Hanmo's work in festival strategy comes from his understanding that a film's life does not end when the final file is exported. For him, festival positioning is not simply about submitting to as many platforms as possible. It is a process of translation: identifying the artistic core of a film, understanding its cultural context, and presenting it in a way that can be recognized by programmers, critics, markets, and audiences.",
       "Having worked with festival materials, short film circulation, editorial writing, and market-facing positioning, Hanmo understands that every film needs a clear pathway. Premiere status, festival hierarchy, regional relevance, genre identity, cultural specificity, director statements, stills, loglines, synopses, and press language all shape how a film is first encountered. These materials are not secondary packaging; they are part of the film's public meaning.",
