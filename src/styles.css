@@ -187,6 +187,13 @@ footer[id] {
   gap: 8px;
 }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
 .nav-links a,
 .language-trigger,
 .button,
@@ -273,9 +280,19 @@ footer[id] {
   position: relative;
 }
 
+.language-menu::after {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  height: 10px;
+  content: "";
+}
+
 .language-trigger {
   background: transparent;
   color: var(--gold);
+  font-size: 0.82rem;
 }
 
 .language-options {
@@ -284,7 +301,7 @@ footer[id] {
   right: 0;
   z-index: 90;
   display: grid;
-  min-width: 150px;
+  min-width: 168px;
   gap: 4px;
   padding: 8px;
   border: 1px solid var(--line);
@@ -321,6 +338,10 @@ footer[id] {
     background 160ms ease,
     color 160ms ease,
     transform 160ms ease;
+}
+
+.language-options button[data-locale="en"] {
+  font-size: 0.86rem;
 }
 
 .language-options button:hover,
@@ -734,6 +755,12 @@ footer[id] {
 
 .contact-grid {
   grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+}
+
+@media (min-width: 1181px) {
+  .contact-grid > div:first-child {
+    margin-left: clamp(22px, 1.4vw, 34px);
+  }
 }
 
 .about-section-heading {
@@ -1447,6 +1474,10 @@ footer[id] {
     padding: 12px 14px;
   }
 
+  .nav-actions {
+    gap: 8px;
+  }
+
   .menu-toggle {
     display: inline-flex;
   }
@@ -1468,8 +1499,7 @@ footer[id] {
     display: grid;
   }
 
-  .nav-links a,
-  .language-trigger {
+  .nav-links a {
     justify-content: flex-start;
     width: 100%;
     min-height: 52px;
@@ -1477,33 +1507,62 @@ footer[id] {
     padding: 15px 16px;
   }
 
+  .language-trigger {
+    width: auto;
+    min-height: 52px;
+    padding: 15px 13px;
+  }
+
   .language-menu {
-    width: 100%;
+    width: auto;
   }
 
   .language-options {
-    position: static;
-    min-width: 0;
-    padding: 0 16px 14px;
-    border: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    background: transparent;
-    box-shadow: none;
-    opacity: 1;
-    transform: none;
-    visibility: visible;
-    backdrop-filter: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 172px;
+    padding: 8px;
+    border: 1px solid var(--line);
+    background: rgba(0, 0, 0, 0.94);
+    box-shadow: 0 22px 72px rgba(0, 0, 0, 0.46);
+    opacity: 0;
+    transform: translate3d(0, 8px, 0);
+    visibility: hidden;
+    backdrop-filter: blur(18px);
   }
 
   .language-options button {
-    min-height: 34px;
-    padding: 8px 0;
+    min-height: 40px;
+    padding: 10px 12px;
   }
 }
 
 @media (max-width: 760px) {
   :root {
     --nav-h: 66px;
+  }
+
+  .brand-lockup span {
+    font-size: 0.72rem;
+  }
+
+  .nav-actions {
+    gap: 6px;
+  }
+
+  .language-trigger {
+    min-height: 44px;
+    padding: 10px 8px;
+    font-size: 0.7rem;
+  }
+
+  .language-options {
+    min-width: 156px;
+  }
+
+  .language-options button[data-locale="en"] {
+    font-size: 0.82rem;
   }
 
   .project-hero {

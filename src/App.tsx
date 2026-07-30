@@ -116,68 +116,77 @@ function Nav({ locale, setLocale }: { locale: Locale; setLocale: (locale: Locale
     close();
   };
 
+  const languageMenu = (
+    <div className={`language-menu ${languageOpen ? "is-open" : ""}`}>
+      <button
+        className="language-trigger"
+        type="button"
+        aria-expanded={languageOpen}
+        aria-label={copy.nav.toggle}
+        onClick={() => setLanguageOpen((value) => !value)}
+      >
+        {copy.nav.language}
+      </button>
+      <div className="language-options" role="menu" aria-label={copy.nav.toggle}>
+        <button
+          type="button"
+          data-locale="en"
+          className={locale === "en" ? "is-active" : ""}
+          onClick={() => chooseLanguage("en")}
+          role="menuitem"
+        >
+          {copy.nav.english}
+        </button>
+        <button
+          type="button"
+          data-locale="zh"
+          className={locale === "zh" ? "is-active" : ""}
+          onClick={() => chooseLanguage("zh")}
+          role="menuitem"
+        >
+          {copy.nav.chinese}
+        </button>
+      </div>
+    </div>
+  );
+
   return (
     <nav className="site-nav" aria-label="Primary navigation">
       <a className="brand-lockup" href="#top" onClick={close}>
         <span>{copy.brand}</span>
       </a>
-      <button
-        className="menu-toggle"
-        type="button"
-        aria-expanded={open}
-        aria-label="Toggle navigation"
-        onClick={() => setOpen((value) => !value)}
-      >
-        <span />
-        <span />
-      </button>
-      <div className={`nav-links ${open ? "is-open" : ""}`}>
-        <a href="#top" onClick={close}>
-          {copy.nav.home}
-        </a>
-        <a href="#reel" onClick={close}>
-          {copy.nav.reel}
-        </a>
-        <a href="#works" onClick={close}>
-          {copy.nav.works}
-        </a>
-        <a href="#about" onClick={close}>
-          {copy.nav.about}
-        </a>
-        <a href="#contact" onClick={close}>
-          {copy.nav.contact}
-        </a>
-        <div className={`language-menu ${languageOpen ? "is-open" : ""}`}>
-          <button
-            className="language-trigger"
-            type="button"
-            aria-expanded={languageOpen}
-            aria-label={copy.nav.toggle}
-            onClick={() => setLanguageOpen((value) => !value)}
-          >
-            {copy.nav.language}
-          </button>
-          <div className="language-options" role="menu" aria-label={copy.nav.toggle}>
-            <button
-              type="button"
-              data-locale="en"
-              className={locale === "en" ? "is-active" : ""}
-              onClick={() => chooseLanguage("en")}
-              role="menuitem"
-            >
-              {copy.nav.english}
-            </button>
-            <button
-              type="button"
-              data-locale="zh"
-              className={locale === "zh" ? "is-active" : ""}
-              onClick={() => chooseLanguage("zh")}
-              role="menuitem"
-            >
-              {copy.nav.chinese}
-            </button>
-          </div>
+      <div className="nav-actions">
+        <div className={`nav-links ${open ? "is-open" : ""}`}>
+          <a href="#top" onClick={close}>
+            {copy.nav.home}
+          </a>
+          <a href="#reel" onClick={close}>
+            {copy.nav.reel}
+          </a>
+          <a href="#works" onClick={close}>
+            {copy.nav.works}
+          </a>
+          <a href="#about" onClick={close}>
+            {copy.nav.about}
+          </a>
+          <a href="#contact" onClick={close}>
+            {copy.nav.contact}
+          </a>
         </div>
+        {languageMenu}
+        <button
+          className="menu-toggle"
+          type="button"
+          aria-expanded={open}
+          aria-label="Toggle navigation"
+          onClick={() => {
+            setOpen((value) => !value);
+            setLanguageOpen(false);
+          }}
+        >
+          <span />
+          <span />
+        </button>
       </div>
     </nav>
   );
@@ -434,7 +443,7 @@ function ContactSection({ locale }: { locale: Locale }) {
           </a>
           <a href={instagramUrl} target="_blank" rel="noreferrer">
             <span>{copy.instagram}</span>
-            <strong>@lucas_filmmaking</strong>
+            <strong>@hanmo_lucas_wu</strong>
           </a>
           <a href={linkedinUrl} target="_blank" rel="noreferrer">
             <span>{copy.linkedin}</span>
